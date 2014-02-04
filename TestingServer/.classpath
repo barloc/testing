@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="/home/barloc/Загрузки/adt-bundle-linux-x86-20131030/snakeyaml-1.11.jar"/>
+	<classpathentry kind="lib" path="/home/barloc/Загрузки/apache-mina-2.0.7/dist/mina-core-2.0.7.jar"/>
+	<classpathentry kind="lib" path="/home/barloc/Загрузки/apache-mina-2.0.7/lib/slf4j-api-1.6.6.jar"/>
+	<classpathentry kind="lib" path="/home/barloc/Загрузки/apache-log4j-1.2.17/log4j-1.2.17.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
