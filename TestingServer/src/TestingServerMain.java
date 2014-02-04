@@ -10,12 +10,15 @@ import org.apache.mina.transport.socket.nio.NioSocketAcceptor;
 
 public class TestingServerMain
 {
-    private static final int PORT = 8000;
+    private int port;
+    private IoAcceptor acceptor;
+    
+    public TestingServerMain(int port) {
+    	this.port = port;
+    	this.acceptor = new NioSocketAcceptor();
+    }
 
-    public static void main( String[] args ) throws IOException
-    {
-        IoAcceptor acceptor = new NioSocketAcceptor();
-
+    public void start() throws IOException {
         acceptor.getFilterChain().addLast( "logger", new LoggingFilter() );
         acceptor.getFilterChain().addLast( "codec", new ProtocolCodecFilter( new TextLineCodecFactory( Charset.forName( "UTF-8" ))));
 
@@ -24,6 +27,12 @@ public class TestingServerMain
         acceptor.getSessionConfig().setReadBufferSize( 2048 );
         acceptor.getSessionConfig().setIdleTime( IdleStatus.BOTH_IDLE, 10 );
         
-        acceptor.bind( new InetSocketAddress(PORT) );
+        acceptor.bind(new InetSocketAddress(port));
+    }
+    
+    public static void main( String[] args ) throws IOException
+    {
+    	TestingServerMain server = new TestingServerMain(8000);
+    	server.start();
     }
 }
